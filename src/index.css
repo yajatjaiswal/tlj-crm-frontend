@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #066039;
+  --color-brand-hover: #044c2e;
+  --color-brand-light: #e7f3ed;
+  --color-brand-extra-light: #f3f8f5;
+  --color-brand-dark: #1A1A1A;
+  --color-brand-dark-secondary: #262626;
+  --color-brand-muted: #087a48;
+  --color-brand-link: #066039;
+  --color-brand-foreground: #ffffff;
+  --color-brand-soft: #c5ddd2;
+  --color-brand-success: #066039;
+  --color-brand-mark: #ed5b36;
+  --color-accent: #ed5b36;
+  --color-accent-hover: #d15030;
+  --color-accent-soft: #fde8e2;
+  --color-surface: #f3f8f5;
+  --color-surface-dark: #1A1A1A;
+  --color-card: #ffffff;
+  --color-border: #e2e8f0;
+  --color-foreground: #1A1A1A;
+  --color-muted: #64748b;
+  --color-elevated: #e7f3ed;
+}
+
+:root {
+  --brand-primary: #066039;
+  --brand-primary-rgb: 6, 96, 57;
+  --brand-primary-hover: #044c2e;
+  --brand-primary-light: #e7f3ed;
+  --brand-primary-extra-light: #f3f8f5;
+  --brand-accent: #ed5b36;
+  --brand-accent-rgb: 237, 91, 54;
+  --brand-accent-light: #f27a5a;
+  --brand-accent-dark: #d15030;
+  --brand-accent-muted: #fde8e2;
+  --brand-dark: #1A1A1A;
+  --brand-dark-rgb: 26, 26, 26;
+  --brand-dark-secondary: #262626;
+  --brand-muted: #087a48;
+  --brand-link: #066039;
+  --brand-success: #066039;
+  --brand-mark: #ed5b36;
+  --brand-text: #1A1A1A;
+  --text-primary: #1A1A1A;
+  --text-secondary: #64748b;
+  --background-primary: #ffffff;
+  --background-secondary: #f3f8f5;
+  --border-color: #e2e8f0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+  background: var(--background-secondary);
+}
+
+.login-css {
+  font-size: 0.9rem;
+  letter-spacing: 1;
+  color: rgb(252, 104, 104);
+  margin-top: -1rem;
+}
+
+.dark {
+  background-color: #1A1A1A;
+  color: #ffffff;
+}
+
+@layer base {
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--brand-primary);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-dark px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-dark focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+}
+
+/* DateRangePicker animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.devtab-scroll {
+  scrollbar-gutter: stable;
+  scrollbar-width: auto;                 /* Firefox */
+  scrollbar-color: #7eaf96 #f3f7f5;
+}
+.devtab-scroll::-webkit-scrollbar { width: 14px; height: 14px; }
+.devtab-scroll::-webkit-scrollbar-track { background: #f3f7f5; border-radius: 8px; }
+.devtab-scroll::-webkit-scrollbar-thumb {
+  background: #7eaf96;
+  border-radius: 8px;
+  border: 3px solid #f3f7f5;             /* inset, so it reads as a pill */
+}
+.devtab-scroll::-webkit-scrollbar-thumb:hover { background: #066039; }
+.devtab-scroll::-webkit-scrollbar-corner { background: #f3f7f5; }
