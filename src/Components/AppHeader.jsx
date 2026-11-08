@@ -19,6 +19,7 @@ import {
   User,
   Sparkles,
   Compass,
+  CirclePlay,
 } from "lucide-react";
 import SvgLoader from "../ui/SvgLoader";
 import debounce from "lodash/debounce";
@@ -26,6 +27,7 @@ import { getLeadStageMeaning, leadStageMapping } from "../utils/leadStageMapping
 import UserMenuDropdown from "./UserMenuDropdown";
 import DomainAnalyticsSummary from "./Search/DomainAnalyticsSummary";
 import WhatsNewModal from "./Modals/WhatsNewModal";
+import TutorialModal from "./Modals/TutorialModal";
 import {
   getUnreadWhatsNewItems,
   getWhatsNewItemsForRoles,
@@ -33,6 +35,7 @@ import {
 } from "../utils/whatsNew";
 import {
   TOUR_END_EVENT,
+  TOUR_PREPARE_EVENT,
   isProductTourSeen,
   requestProductTour,
 } from "../utils/productTour";
@@ -376,6 +379,7 @@ function AppHeader({ isSidebarCollapsed, hideSidebar = false }) {
   const [domainAnalytics, setDomainAnalytics] = useState(null);
   const [error, setError] = useState(null);
   const [showWhatsNew, setShowWhatsNew] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
   const [unreadWhatsNewCount, setUnreadWhatsNewCount] = useState(0);
   const hasAutoOpenedWhatsNew = useRef(false);
   const user = useSelector((state) => state.user);
@@ -435,6 +439,7 @@ function AppHeader({ isSidebarCollapsed, hideSidebar = false }) {
 
   useEffect(() => {
     const openWhatsNewAfterTour = (event) => {
+      setShowLogout(false);
       if (event.detail?.tour === "lead" || event.detail?.tour === "summary") return;
       const unread = getUnreadWhatsNewItems(user?.allRoles);
       setUnreadWhatsNewCount(unread.length);
@@ -443,8 +448,15 @@ function AppHeader({ isSidebarCollapsed, hideSidebar = false }) {
         setShowWhatsNew(true);
       }
     };
+    const syncAccountMenu = (event) => {
+      setShowLogout(Boolean(event.detail?.openUserMenu));
+    };
+    window.addEventListener(TOUR_PREPARE_EVENT, syncAccountMenu);
     window.addEventListener(TOUR_END_EVENT, openWhatsNewAfterTour);
-    return () => window.removeEventListener(TOUR_END_EVENT, openWhatsNewAfterTour);
+    return () => {
+      window.removeEventListener(TOUR_PREPARE_EVENT, syncAccountMenu);
+      window.removeEventListener(TOUR_END_EVENT, openWhatsNewAfterTour);
+    };
   }, [user?.allRoles]);
 
   const handleCloseWhatsNew = () => {
@@ -639,6 +651,12 @@ function AppHeader({ isSidebarCollapsed, hideSidebar = false }) {
           : "What's new",
       icon: Sparkles,
       onClick: () => setShowWhatsNew(true),
+    },
+    {
+      label: "Tutorial",
+      icon: CirclePlay,
+      dataTour: "crm-tutorial",
+      onClick: () => setShowTutorial(true),
     },
     {
       label: "Take a tour",
@@ -901,6 +919,11 @@ function AppHeader({ isSidebarCollapsed, hideSidebar = false }) {
         onClose={handleCloseWhatsNew}
         items={whatsNewItems}
         unreadCount={unreadWhatsNewCount}
+      />
+
+      <TutorialModal
+        isOpen={showTutorial}
+        onClose={() => setShowTutorial(false)}
       />
 
       {/* Change Password Modal */}

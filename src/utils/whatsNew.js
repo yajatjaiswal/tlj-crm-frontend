@@ -16,50 +16,7 @@
 
 export const WHATS_NEW_STORAGE_KEY = "sfl-crm:whats-new:seen-ids";
 
-export const WHATS_NEW_ITEMS = [
-  {
-    id: "dashboard-collection-drilldown-2026-11",
-    title: "Smarter recovered amount insights",
-    summary:
-      "Drill into collection breakups and sort day-wise overdue recoveries right from the admin dashboard.",
-    points: [
-      "Click PP, DD, or OD on Recovered Amount Breakup to see the matching collection list.",
-      "Sort that list by repayment date, received date, amounts, % collected, or overdue days.",
-      "Day-wise Recovered Overdues now supports the same column sorting.",
-    ],
-    date: "2026-11-04",
-    tag: "New",
-    roles: ["ADMIN"],
-  },
-  {
-    id: "pagination-page-size-2026-11",
-    title: "Choose rows per page",
-    summary:
-      "You can now change how many rows show on each page from the pagination bar.",
-    points: [
-      "Use Show per page next to the entries count.",
-      "Pick 10, 25, 50, or 100 rows.",
-      "Available on lead lists across the CRM.",
-    ],
-    date: "2026-11-02",
-    tag: "Improved",
-  },
-  {
-    id: "location-suspicious-qc-2026-10",
-    title: "Location Suspicious checks",
-    summary:
-      "Quality Checkers can review leads where a check or address was farther than allowed, then approve the location or reject the lead.",
-    points: [
-      "Open Location Suspicious Leads and tap Check on a row.",
-      "See the map, step distances, and customer addresses in one place.",
-      "Write a reason, then Approve location or Reject lead.",
-      "Rejected leads appear under Rejected Leads.",
-    ],
-    date: "2026-10-14",
-    tag: "New",
-    roles: ["QUALITY-CHECKER", "ADMIN", "CREDIT-ANALYST", "CREDIT-HEAD"],
-  },
-];
+export const WHATS_NEW_ITEMS = [];
 
 function normalizeRole(role) {
   return String(role || "")

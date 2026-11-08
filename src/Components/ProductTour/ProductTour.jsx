@@ -300,6 +300,20 @@ export default function ProductTour() {
         });
       }
       if (cancelled) return;
+      window.dispatchEvent(
+        new CustomEvent(TOUR_PREPARE_EVENT, {
+          detail: { openUserMenu: Boolean(step.openUserMenu) },
+        })
+      );
+      if (step.openUserMenu && step.target) {
+        const started = Date.now();
+        while (!cancelled && !document.querySelector(step.target) && Date.now() - started < 800) {
+          await new Promise((resolve) => {
+            window.setTimeout(resolve, 40);
+          });
+        }
+      }
+      if (cancelled) return;
       if (step.expandSidebar) {
         const sidebar = readRect("[data-tour='sidebar']");
         const collapsed = !sidebar || sidebar.left < 0 || sidebar.width < 120;

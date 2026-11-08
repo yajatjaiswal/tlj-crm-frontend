@@ -56,6 +56,27 @@ function searchStep() {
   };
 }
 
+function tutorialStep() {
+  return {
+    id: "crm-tutorial",
+    title: "Watch the full tutorial",
+    body: "Tutorial, in this menu, plays the full CRM walkthrough. Choose English or Hindi.",
+    target: "[data-tour='crm-tutorial']",
+    placement: "left",
+    openUserMenu: true,
+  };
+}
+
+function accountStep() {
+  return {
+    id: "account",
+    title: "Your account menu",
+    body: "Open your name for Profile, What's new, Tutorial, Take a tour, and Change Password. Logout is the last item.",
+    target: "[data-tour='user-menu']",
+    placement: "left",
+  };
+}
+
 function workspaceStep(body) {
   return {
     id: "workspace",
@@ -116,6 +137,8 @@ const ROLE_TOURS = {
             "Closed sales cases",
             "Completed and Rejected are finished sales cases. Unserviceable PinCode Leads are addresses you cannot serve."
           ),
+          tutorialStep(),
+          accountStep(),
           workspaceStep(
             "Lead lists open in this area. Select a row to see the customer, add a comment, and move the lead."
           ),
@@ -159,6 +182,8 @@ const ROLE_TOURS = {
             "Action Pan",
             "Action Pan is for checks and overrides that do not belong to a single queue."
           ),
+          tutorialStep(),
+          accountStep(),
           workspaceStep(
             "Open a row to read the file and record the credit decision."
           ),
@@ -202,6 +227,8 @@ const ROLE_TOURS = {
             "Action Pan",
             "Action Pan is for checks and overrides that sit outside the audit lists."
           ),
+          tutorialStep(),
+          accountStep(),
           workspaceStep(
             "Open a lead here to assign it or review the audit outcome."
           ),
@@ -235,6 +262,8 @@ const ROLE_TOURS = {
             "Action Pan",
             "Action Pan is for disbursal checks and overrides that are not on those two lists."
           ),
+          tutorialStep(),
+          accountStep(),
           workspaceStep(
             "Open a row to confirm a disbursal or check what was sent."
           ),
@@ -515,13 +544,8 @@ function genericSteps({ role, canSwitchRole, hasSearch }) {
       target: "[data-tour='role-switch']",
       placement: "bottom",
     },
-    {
-      id: "account",
-      title: "Your account",
-      body: "Open this menu for your profile, password, What's new, and this tour. Logout is here too.",
-      target: "[data-tour='user-menu']",
-      placement: "bottom",
-    },
+    tutorialStep(),
+    accountStep(),
     workspaceStep(
       "Lead lists, dashboards, and customer details open in this area. Select a row when you are ready to review a lead."
     )

@@ -22,6 +22,7 @@ const UserMenuDropdown = ({
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target) &&
+        !(event.target instanceof Element && event.target.closest("[data-tour-active]")) &&
         isOpen
       ) {
         onClose();
@@ -57,6 +58,7 @@ const UserMenuDropdown = ({
           return (
             <button
               key={index}
+              data-tour={item.dataTour}
               className={`w-full flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-brand-light transition-all cursor-pointer ${
                 item.className || ""
               }`}
