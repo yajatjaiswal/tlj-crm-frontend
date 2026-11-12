@@ -1,14 +1,16 @@
 const normalizeEmail = (email) => String(email || "").trim().toLowerCase();
 
 export const ACTION_PAN_PERMISSION_EMAILS = [
-  "poonam.sharma@theloanjunction.com",
   "admin@theloanjunction.com",
   "anuragg@blinkrloan.com",
-  "harshit.g@creditbridgetechnologies.com",
-  "simran.sangwan@theloanjunction.com",
+  "harshit.g@creditbridgetechnologies.com", 
   "gunjan.k@creditbridgetechnologies.com",
   "preapproved@theloanjunction.com",
-  "loknath.aacharaj@theloanjunction.com"
+  "kuldeep@theloanjunction.com",
+  "pradeep@theloanjunction.com",
+  "harish@theloanjunction.com",
+  "finance@theloanjunction.com",
+  "harshit.g@theloanjunction.com",
 ];
 
 export const GET_OTP_PERMISSION_EMAILS = [
@@ -19,24 +21,28 @@ export const GET_OTP_PERMISSION_EMAILS = [
 export const EDIT_SANCTION_PERMISSION_EMAILS = [
   "anuragg@blinkrloan.com",
   "admin@theloanjunction.com",
-  "poonam.sharma@theloanjunction.com",
   "harshit.g@creditbridgetechnologies.com",
-  "simran.sangwan@theloanjunction.com",
   "gunjan.k@creditbridgetechnologies.com", 
   "preapproved@theloanjunction.com",
-  "loknath.aacharaj@theloanjunction.com"
+  "kuldeep@theloanjunction.com",
+  "pradeep@theloanjunction.com",
+  "harish@theloanjunction.com",
+  "finance@theloanjunction.com",
+  "harshit.g@theloanjunction.com",
 ];
 
 /** Frontend-only allowlist for Geofence Whitelist admin page */
 export const GEOFENCE_WHITELIST_PERMISSION_EMAILS = [
-  "poonam.sharma@theloanjunction.com",
   "admin@theloanjunction.com",
   "anuragg@blinkrloan.com",
   "harshit.g@creditbridgetechnologies.com",
-  "simran.sangwan@theloanjunction.com",
   "gunjan.k@creditbridgetechnologies.com",
   "preapproved@theloanjunction.com",
-  "loknath.aacharaj@theloanjunction.com"
+  "kuldeep@theloanjunction.com",
+  "pradeep@theloanjunction.com",
+  "harish@theloanjunction.com",
+  "finance@theloanjunction.com",
+  "harshit.g@theloanjunction.com",
 ];
 
 export const isActionPanPermissionEmail = (email) =>
