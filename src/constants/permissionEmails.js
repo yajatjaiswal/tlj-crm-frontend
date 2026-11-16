@@ -11,6 +11,7 @@ export const ACTION_PAN_PERMISSION_EMAILS = [
   "harish@theloanjunction.com",
   "finance@theloanjunction.com",
   "harshit.g@theloanjunction.com",
+  "anuragg@blinkrloan.com",
 ];
 
 export const GET_OTP_PERMISSION_EMAILS = [
@@ -29,6 +30,7 @@ export const EDIT_SANCTION_PERMISSION_EMAILS = [
   "harish@theloanjunction.com",
   "finance@theloanjunction.com",
   "harshit.g@theloanjunction.com",
+  "anuragg@blinkrloan.com",
 ];
 
 /** Frontend-only allowlist for Geofence Whitelist admin page */
@@ -43,6 +45,7 @@ export const GEOFENCE_WHITELIST_PERMISSION_EMAILS = [
   "harish@theloanjunction.com",
   "finance@theloanjunction.com",
   "harshit.g@theloanjunction.com",
+  "anuragg@blinkrloan.com",
 ];
 
 export const isActionPanPermissionEmail = (email) =>
