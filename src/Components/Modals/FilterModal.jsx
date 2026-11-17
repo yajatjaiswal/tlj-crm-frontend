@@ -72,7 +72,7 @@ const FilterModal = ({
     { value: "HEXA", label: "Hexa" },
     { value: "GOOGLE", label: "Google" },
     { value: "EXTERNAL_SOURCE_8", label: "Organic" },
-    { value: "BLINKR LOAN", label: "Bamboo Tree" },
+    { value: "BLINKR LOAN", label: "Web Search" },
     { value: "MARKETING", label: "Google Landing" },
     { value: "EXTERNAL_SOURCE", label: "Organic Old" },
     { value: "EXTERNAL_SOURCE_2", label: "Organic 2" },

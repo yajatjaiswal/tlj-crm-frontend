@@ -460,7 +460,7 @@ const LeadRow = ({
                       : row.source === "EXTERNAL_SOURCE_3"
                         ? "Organic 3"
                         : row.source === "BLINKR LOAN"
-                          ? "Bamboo Tree"
+                          ? "Web Search"
                   : row.source
                 .split(" ")
                 .map(
